@@ -2,7 +2,7 @@ from typing import List, Optional, Type
 
 from sqlalchemy.orm import Session
 
-from app.core.security import create_hashed_password
+from app.core.security import create_hashed_password, verify_password
 from app.models.user import User
 from app.schemas.user import UserCreate, UserUpdate
 
@@ -49,4 +49,13 @@ def delete(username: str, updated_by_username: str, db: Session) -> User:
     db.add(user)
     db.commit()
     db.refresh(user)
+    return user
+
+
+def authenticate(username: str, password: str, db: Session) -> Optional[User]:
+    user = get(username, db)
+    if not user:
+        return None
+    if not verify_password(password, user.password):
+        return None
     return user
