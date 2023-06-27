@@ -11,7 +11,7 @@ def create(obj_in: UserCreate, created_by_username: str, db: Session) -> User:
     user = User(
         username=obj_in.username,
         password=create_hashed_password(obj_in.password),
-        diplay_name=obj_in.display_name,
+        display_name=obj_in.display_name,
         email=obj_in.email,
         created_by=created_by_username
     )
