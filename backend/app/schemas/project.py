@@ -7,15 +7,14 @@ from app.schemas.task_base import TaskBase
 
 
 class ProjectCreate(ProjectBase):
-    pass
+    id: Optional[int] = None
 
 
 class ProjectUpdate(ProjectBase):
-    pass
+    id: Optional[int] = None
 
 
 class ProjectResponse(ProjectBase):
-    id: int
     is_completed: bool
     is_deleted: bool
     created_by: str
