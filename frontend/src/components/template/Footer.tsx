@@ -1,10 +1,11 @@
 import React from "react";
+import {Typography} from "@mui/material";
 
 const Footer = () => {
     return (
-        <div>
-            
-        </div>
+        <Typography variant="body2" align="center">
+           Copyright &copy; {new Date().getFullYear()} i5net.
+        </Typography>
     );
 };
 
